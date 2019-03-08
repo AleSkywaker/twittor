@@ -30,5 +30,16 @@ self.addEventListener('install', (e) => {
 		cache.addAll(APP_SHELL_INMUTABLE);
 	});
 
-	e.waitUntill(Promise.all([ cacheStatic, cacheInmutable ]));
+	e.waitUntil(Promise.all([ cacheStatic, cacheInmutable ]));
+});
+
+self.addEventListener('fetch', (e) => {
+	const respuesta = caches.keys().then((keys) => {
+		keys.forEach((key) => {
+			if (key !== STATIC_CACHE && key.includes('static')) {
+				return caches.delete(key);
+			}
+		});
+	});
+	e.waitUntil(respuesta);
 });

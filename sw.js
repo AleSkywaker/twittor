@@ -33,7 +33,7 @@ self.addEventListener('install', (e) => {
 	e.waitUntil(Promise.all([ cacheStatic, cacheInmutable ]));
 });
 
-self.addEventListener('fetch', (e) => {
+self.addEventListener('activate', (e) => {
 	const respuesta = caches.keys().then((keys) => {
 		keys.forEach((key) => {
 			if (key !== STATIC_CACHE && key.includes('static')) {

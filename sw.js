@@ -45,11 +45,11 @@ self.addEventListener('activate', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
-	caches.match(e.request).then((res) => {
+	const respuesta = caches.match(e.request).then((res) => {
 		if (res) {
 			return res;
 		}
 		console.log(e.request.url);
 	});
-	e.waitUntil();
+	e.waitUntil(respuesta);
 });

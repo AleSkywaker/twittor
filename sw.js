@@ -44,14 +44,12 @@ self.addEventListener('activate', (e) => {
 	e.waitUntil(respuesta);
 });
 
-
-self.addEventListener('fetch', e=>{
-
-	caches.match(e.request).then(res =>{
-		if(res){
+self.addEventListener('fetch', (e) => {
+	caches.match(e.request).then((res) => {
+		if (res) {
 			return res;
 		}
 		console.log(res);
-	})
-	e.waitUntil(respuesta);
-})
+	});
+	e.waitUntil();
+});

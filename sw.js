@@ -43,3 +43,8 @@ self.addEventListener('activate', (e) => {
 	});
 	e.waitUntil(respuesta);
 });
+
+
+self.addEventListener('fetch', e=>{
+	
+})

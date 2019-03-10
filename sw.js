@@ -48,8 +48,11 @@ self.addEventListener('fetch', (e) => {
 	const respuesta = caches.match(e.request).then((res) => {
 		if (res) {
 			return res;
+		} else {
+			return fetch(e.request).then((newRes) => {
+			
+			});
 		}
-		console.log(e.request.url);
 	});
 	e.waitUntil(respuesta);
 });

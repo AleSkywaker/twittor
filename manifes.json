@@ -1,6 +1,7 @@
 {
     "short_name": "Twittor",
     "name": "Twittor para heroes",
+    "start_url": "index.html",
     "icons": [
       {
         "src": "launcher-icon-1x.png",
@@ -17,7 +18,6 @@
         "type": "image/png",
         "sizes": "192x192"
       }
-    ],
-    "start_url": "index.html?launcher=true"
+    ]
   }
   
